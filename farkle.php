@@ -5,11 +5,11 @@ session_start();
 
 // dice variables
     $_SESSION["dieOne"] = 0;
-	$_SESSION["dieTwo"] = 0;
-	$_SESSION["dieThree"] = 0;
-	$_SESSION["dieFour"] = 0;
-	$_SESSION["dieFive"] = 0;
-	$_SESSION["dieSix"] = 0;
+    $_SESSION["dieTwo"] = 0;
+    $_SESSION["dieThree"] = 0;
+    $_SESSION["dieFour"] = 0;
+    $_SESSION["dieFive"] = 0;
+    $_SESSION["dieSix"] = 0;
 
 // turn variables
     $_SESSION["turn"] = 0;
@@ -78,10 +78,6 @@ function outputDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSi
 
 }
 
-function outputGame(&$turn, &$score)
-{
-    echo "Turn: $turn <br> Score: $score <br>";
-}
 
 // Turn Functions
 
@@ -128,37 +124,44 @@ HERE;
                 if ($button == "Roll All")
                 {
                     rollAll($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die One"){
                 
                     rolldieOne($dieOne);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Two"){
                 
                     rolldieTwo($dieTwo);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Three"){
                 
                     rolldieThree($dieThree);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Four"){
                 
                     rolldieFour($dieFour);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Five"){
                 
                     rolldieFive($dieFive);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Six"){
                 
                     rolldieSix($dieSix);
-		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    passTurn($turn, $score);
+		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "End Turn"){
 		    endTurn($turn, $score);
