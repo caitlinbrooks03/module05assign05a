@@ -10,6 +10,10 @@ session_start();
 	$_SESSION["dieFour"] = 0;
 	$_SESSION["dieFive"] = 0;
 	$_SESSION["dieSix"] = 0;
+
+// turn variables
+    $_SESSION["turn"] = 0;
+    $_SESSION["score"] = 0;
 	
 	
 // Page Setup
@@ -157,7 +161,8 @@ HERE;
 		    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "End Turn"){
-                    passData($turn, $score, $dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    endTurn($turn, $score);
+                    passTurn($turn, $score);
                     outputGame($turn, $score);
                     
                 }
