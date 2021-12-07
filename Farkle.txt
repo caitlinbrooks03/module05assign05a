@@ -1,0 +1,31 @@
+
+    // GAME RULES
+		// 1. players take turns with the dice
+    
+		// 2. start by rolling 6 dice
+			// random number generator (1-6) for six different values. displays
+			// each dice roll result, and offers option to pick which dice to keep
+      
+		// 3. player's turn is done when they have a dud roll or when they choose to
+		// pass the dice.
+			// "Dud roll"
+			// a dud roll occurs when NONE of the following things happen with a roll:
+				// roll at least one "1"
+				// roll at least one "5"
+				// roll three of a kind (ie. "3","3","3")
+				// roll a run of some kind (ie. "1","2","3")
+        
+		// 4. players can either roll again with remaining dice or end their turn.
+    
+		// 5. players should initially keep rolling until they either get enough points to
+		// get on the score board or don't get any more scoring dice rolls
+    
+		// 6. If player manages to get all 6 dice to be used in scoring rolls,
+		// the player can then roll all 6 dice again and add to their points.
+    
+		// 7. somebody wins when a person gets more than 10,000 points.
+			// Points Scale
+				//          "1" |    50
+				//          "5" |    50
+				//  3 of a kind | rolled number * 100
+				//        a run |    600
