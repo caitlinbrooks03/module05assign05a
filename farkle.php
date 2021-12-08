@@ -18,9 +18,11 @@ session_start();
 	
 // Page Setup
 	
-function page() {
+function page($turn, $score) {
 
     echo <<< HERE
+        <p>Turn:  $turn <br> Score:  $score</p>
+        <br>
         <input type = "submit" name = "button" value = "Roll All">
         <br>
         <input type = "submit" name = "button" value = "Roll Die One">
@@ -29,7 +31,7 @@ function page() {
         <input type = "submit" name = "button" value = "Roll Die Four">
         <input type = "submit" name = "button" value = "Roll Die Five">
         <input type = "submit" name = "button" value = "Roll Die Six">
-	<br>
+        <br>
         <input type = "submit" name = "button" value = "End Turn">    
 HERE;
 
@@ -84,7 +86,7 @@ function outputDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSi
 function endTurn(&$turn, &$score)
 {
     $turn += 1;
-    $score = $score + 1 * .8;
+    
     
     
 }
@@ -92,17 +94,24 @@ function endTurn(&$turn, &$score)
 
 function passData(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix){
 
-echo <<< HERE
+        echo <<< HERE
         <input type = "hidden" name="dieOne" value = "$dieOne">
         <input type = "hidden" name = "dieTwo" value = "$dieTwo">
         <input type = "hidden" name = "dieThree" value = "$dieThree">
         <input type = "hidden" name = "dieFour" value = "$dieFour">
         <input type = "hidden" name = "dieFive" value = "$dieFive">
         <input type = "hidden" name = "dieSix" value = "$dieSix">
-        <input type = "hidden" name = "turn" value = "$turn">
-        <input type = "hidden" name = "score" value = "$score">
+        
 HERE;
 
+}
+function passTurn(&$turn, &$score){
+
+        echo <<< HERE
+        <input type = "hidden" name = "turn" value = "$turn">
+        <input type = "hidden" name = "score" value = "$score">
+
+HERE;
 }
 	
 ?>
@@ -114,9 +123,7 @@ HERE;
         <link rel="stylesheet" href = farkle.css">
     </header>
     <body>
-        
-        
-    
+            
         <form action = "farkle.php" method = "POST">
             <?php
                 extract($_REQUEST);
@@ -124,53 +131,52 @@ HERE;
                 if ($button == "Roll All")
                 {
                     rollAll($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die One"){
                 
                     rolldieOne($dieOne);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Two"){
                 
                     rolldieTwo($dieTwo);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Three"){
                 
                     rolldieThree($dieThree);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Four"){
                 
                     rolldieFour($dieFour);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Five"){
                 
                     rolldieFive($dieFive);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "Roll Die Six"){
                 
                     rolldieSix($dieSix);
-		    passTurn($turn, $score);
-		    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+                    passTurn($turn, $score);
+                    passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                 } else if ($button == "End Turn"){
-		    endTurn($turn, $score);
+                    endTurn($turn, $score);
                     passTurn($turn, $score);
-                    outputGame($turn, $score);
                     
                 }
                 
-                page();
+                page($turn, $score);
                               
                 //echo "<HR>";
                 //highlight_file("index.php");
