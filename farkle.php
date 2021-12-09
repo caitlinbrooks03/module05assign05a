@@ -154,7 +154,7 @@ function checkDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix
         <link rel="stylesheet" href = farkleGame.css">
     </header>
     <body>
-            
+        <div class = "wrapper">
         <form action = "farkle.php" method = "POST">
             <?php
                 extract($_REQUEST);
@@ -213,7 +213,13 @@ function checkDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix
                 //echo "<HR>";
                 //highlight_file("index.php");
             ?>
+						   
         </form>
-    
+	</div>
+        <footer class = "footer">
+            <form action = "index.php" method =   "POST">
+                <input type = "submit" name = "button" value = "Return Home" >
+            </form>
+        </footer>
     </body>
 </html>
