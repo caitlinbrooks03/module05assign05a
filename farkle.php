@@ -120,7 +120,7 @@ HERE;
     <header>
         <meta charset ="utf-8">
         <title>Farkle</title>
-        <link rel="stylesheet" href = farkle.css">
+        <link rel="stylesheet" href = farkleGame.css">
     </header>
     <body>
             
