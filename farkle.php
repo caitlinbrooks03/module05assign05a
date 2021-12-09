@@ -116,58 +116,31 @@ HERE;
 
 	
 // logic to see if turn is over based on roll
-function checkDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix){
+function checkDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix, &$score, &$turn){
 	$values = array($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
 	$one = 0;
-	$two = 0;
-	$three = 0;
-	$four = 0;
 	$five = 0;
-	$six = 0;
 	
 	for ($i=0; $i < 6; $i++) {
 		if ($values[$i] == 1) {
 			$one = $one + 1;
-			break;
-		}
-		else if ($values[$i] == 2) {
-			$two = $two + 1;
-		}
-		else if ($values[$i] == 3) {
-			$three = $three + 1;
-		}
-		else if ($values[$i] == 4) {
-			$four = $four + 1;
 		}
 		else if ($values[$i] == 5) {
 			$five = $five + 1;
-			break;
-		}
-		else if ($values[$i] == 6) {
-			$six = $six + 1;
 		}
 	}
 	
 	if ($one > 0) {
-		echo "There is at least one 1";
+		$one = $one * 100;
+		$score = $one + $score;
 	}
-	else if ($two >= 3) {
-		echo "There is at least three 2s";
+	if ($five > 0) {
+		$five = $five * 50;
+		$score = $five + $score;
 	}
-	else if ($three >= 3) {
-		echo "There is at least three 3s";
-	}
-	else if ($four >= 3) {
-		echo "There is at least three 4s";
-	}
-	else if ($five > 0) {
-		echo "There is at least one 5";
-	}
-	else if ($six >= 3) {
-		echo "There is at least three 6s";
-	}
-	else {
-		echo "There are no scoring dice. End Turn.";
+	if ($five == 0 and $one == 0) {
+		echo "<br>There are no scoring dice. End Turn.";
+		endTurn($turn, $score);
 	}
 }
 
@@ -189,10 +162,10 @@ function checkDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix
                 if ($button == "Roll All")
                 {
                     rollAll($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
-                    passTurn($turn, $score);
                     passData($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
                     outputDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
-		    checkDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix);
+		    checkDie($dieOne, $dieTwo, $dieThree, $dieFour, $dieFive, $dieSix, $score, $turn);
+		    passTurn($turn, $score);
                 } else if ($button == "Roll Die One"){
                 
                     rolldieOne($dieOne);
