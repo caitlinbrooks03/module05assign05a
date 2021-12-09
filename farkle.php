@@ -151,7 +151,7 @@ function checkDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix
     <header>
         <meta charset ="utf-8">
         <title>Farkle</title>
-        <link rel="stylesheet" href = farkleGame.css">
+        <link rel="stylesheet" href = "farkleGame.css">
     </header>
     <body>
         <div class = "wrapper">
