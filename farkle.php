@@ -28,13 +28,6 @@ function page($turn, $score, $aiScore) {
         <br>
         <input type = "submit" name = "button" value = "Roll All">
         <br>
-        <input type = "submit" name = "button" value = "Roll Die One">
-        <input type = "submit" name = "button" value = "Roll Die Two">
-        <input type = "submit" name = "button" value = "Roll Die Three">
-        <input type = "submit" name = "button" value = "Roll Die Four">
-        <input type = "submit" name = "button" value = "Roll Die Five">
-        <input type = "submit" name = "button" value = "Roll Die Six">
-        <br>
         <input type = "submit" name = "button" value = "End Turn">    
 HERE;
 
@@ -53,30 +46,6 @@ function rollAll(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix)
     
 }
 
-function rolldieOne(&$dieOne){
-    $dieOne = rand(1,6);
-}
-
-function rolldieTwo(&$dieTwo){
-    $dieTwo = rand(1,6);
-}
-
-function rolldieThree(&$dieThree){
-    $dieThree = rand(1,6);
-}
-
-function rolldieFour(&$dieFour){
-    $dieFour = rand(1,6);
-}
-
-function rolldieFive(&$dieFive){
-    $dieFive = rand(1,6);
-}
-
-function rolldieSix(&$dieSix){
-    $dieSix = rand(1,6);
-}
-	
 function outputDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSix){
 
     echo "<br>Die 1: $dieOne <br> Die 2: $dieTwo <br> Die 3: $dieThree <br> Die 4: $dieFour <br> Die 5: $dieFive <br> Die 6: $dieSix";
