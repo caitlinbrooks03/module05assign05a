@@ -58,9 +58,16 @@ function outputDie(&$dieOne, &$dieTwo, &$dieThree, &$dieFour, &$dieFive, &$dieSi
 function endTurn(&$turn, &$score)
 {
     $turn += 1;
-    
-    
-    
+}
+
+function endGame($score, $aiScore){
+
+    if ($score >= 6000 or $aiScore >= 6000){
+        if ($score > $aiScore)
+            echo "Game Over: You Win";
+        else
+            echo "Game Over: Computer Wins";
+    }
 }
 //Persistence functions
 
@@ -179,6 +186,7 @@ function aiScore(&$aiScore){
                     endTurn($turn, $score);
 		    aiScore($aiScore);
                     passTurn($turn, $score, $aiScore);
+		    endGame($score, $aiScore);
                     
                 }
                 
